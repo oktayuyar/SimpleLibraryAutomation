@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BookController {
 	
 	@RequestMapping(value="/list_books" , method = RequestMethod.GET)
-	public String loadHomePage() {
+	public String loadBooksPage() {
 		
 		return "books";
 	}

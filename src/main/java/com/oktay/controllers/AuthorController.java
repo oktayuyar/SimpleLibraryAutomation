@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class AuthorController {
+	
 	@RequestMapping(value="/list_authors" , method = RequestMethod.GET)
-	public String loadHomePage() {
+	public String loadAuthorsPage() {
 		
 		return "authors";
 	}
