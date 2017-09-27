@@ -4,47 +4,67 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
 	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables" />
 
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<script th:src="@{/js/jquery-1.9.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
 <title>Add Book</title>
 </head>
 <body>
-	<div>
-		<table>
-			<tr>
-				<td><a href="/list_books">List Books</a></td>
-				<td><a href="/list_authors">List Authors</a></td>
-				<td><a href="/add_book">Add Book</a></td>
-				<td><a href="/add_author">Add Author</a></td>
-			</tr>
-		</table>
-	</div>
-	
-	<div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i
+						class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="#">Simple Library Automation</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-left">
+					<li class="active"></li>
+					<li><a href="/list_books">List Books</a></li>
+					<li><a href="/list_authors">List Authors</a></li>
+					<li><a href="/add_book">Add Book</a></li>
+					<li><a href="/add_author">Add Author</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div align="center">
 		<h1>New Book</h1>
 		<form action="/save_book" method="post">
 			<table>
 				<tr>
 					<td>Book Name:</td>
-					<td><input type="text" name="book_name"></input></td>
+					<td><input type="text" class="form-control" name="book_name"></input></td>
 				</tr>
 				<tr>
 					<td>ISBN:</td>
-					<td><input type="text" name="ISBN"></input></td>
+					<td><input type="text" class="form-control" name="ISBN"></input></td>
 				</tr>
 				<tr>
 					<td>Publish Year:</td>
-					<td><input type="text" name="publish_year"></input></td>
+					<td><input type="text" class="form-control"
+						name="publish_year"></input></td>
 				</tr>
 				<tr>
 					<td>Publisher:</td>
-					<td><input type="text" name="publisher"></input></td>
+					<td><input type="text" class="form-control" name="publisher"></input></td>
 				</tr>
 				<tr>
 					<td>Status:</td>
-					<td><input type="text" name="status"></input></td>
+					<td><input type="text" class="form-control" name="status"></input></td>
 				</tr>
 
 				<tr>
-					<td><button type="submit">Save</button></td>
+					&nbsp;&nbsp;<td><button class="btn btn-danger" type="submit">Save</button></td>
 				</tr>
 			</table>
 		</form>

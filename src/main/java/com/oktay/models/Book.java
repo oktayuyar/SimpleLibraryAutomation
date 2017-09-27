@@ -31,7 +31,7 @@ public class Book {
 	private String publisher;
 	private Boolean status;
 	
-	@OneToMany(mappedBy="book" ,cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="book" ,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Collection<Author>  authors =new ArrayList<Author>();
 
 	public int getId() {
