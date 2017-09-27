@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables" />
+
 <title>List Books</title>
 </head>
 <body>
-	<h1>List Books</h1>
+	<div>
+		<table>
+			<tr>
+				<td><a href="/list_books">List Books</a></td>
+				<td><a href="/list_authors">List Authors</a></td>
+				<td><a href="/add_book">Add Book</a></td>
+				<td><a href="/add_author">Add Author</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="span12">
+		<table id="myBooks" dt:table="true">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>ISBN</th>
+					<th>Book Name</th>
+					<th>Publish Year</th>
+					<th>Publisher</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="book : ${listBooks}">
+					<td th:text="${book?.id}"></td>
+					<td th:text="${book?.ISBN}"></td>
+					<td th:text="${book?.book_name}"></td>
+					<td th:text="${book?.publish_year}"></td>
+					<td th:text="${book?.publisher}"></td>
+					<td th:text="${book?.status}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 </body>
 </html>

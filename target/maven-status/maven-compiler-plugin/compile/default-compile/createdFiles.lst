@@ -1,2 +1,13 @@
+com/oktay/models/Author.class
+com/oktay/controllers/AuthorController.class
+com/oktay/service/BookService.class
 com/oktay/SimpleLibraryAutomationApplication.class
 com/oktay/controllers/BookController.class
+com/oktay/service/AuthorService.class
+com/oktay/service/BookServiceImpl.class
+com/oktay/models/Book.class
+com/oktay/service/AuthorServiceImpl.class
+com/oktay/dao/AuthorDAOImpl.class
+com/oktay/dao/BookDAOImpl.class
+com/oktay/dao/AuthorDAO.class
+com/oktay/dao/BookDAO.class

@@ -1,8 +1,19 @@
 package com.oktay.controllers;
 
+import java.io.IOException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.oktay.models.Author;
+import com.oktay.models.Book;
+import com.oktay.service.AuthorService;
+import com.oktay.service.BookService;
 
 /**
  * @author oktay
@@ -11,10 +22,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AuthorController {
 	
+	@Autowired
+	private AuthorService authorService;
+	
+	@Autowired
+	private BookService bookService;
+	
 	@RequestMapping(value="/list_authors" , method = RequestMethod.GET)
-	public String loadAuthorsPage() {
+	public ModelAndView ListAuthors(ModelAndView model) throws IOException {
+		List<Author> listAuthors = authorService.getAllAuthors();
+		model.addObject("listAuthors", listAuthors);
+		model.setViewName("authors");
 		
-		return "authors";
+		return model;
+	}
+	
+	@RequestMapping(value = "/add_author", method = RequestMethod.GET)
+	public ModelAndView newAuthor(ModelAndView model) {
+		
+		Author author = new Author();
+		List<Book> listBooks = bookService.getAllBooks();
+		model.addObject("author", author);
+		model.addObject("listBooks", listBooks);
+		model.setViewName("addAuthor");
+		
+		return model;
+	}
+	
+	@RequestMapping(value = "/save_author", method = RequestMethod.POST)
+	public ModelAndView saveAuthor(@ModelAttribute Author author) {
+		authorService.addAuthor(author);
+		return new ModelAndView("redirect:/list_authors");
 	}
 	
 }

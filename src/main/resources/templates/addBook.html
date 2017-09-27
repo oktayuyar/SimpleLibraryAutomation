@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables" />
+
+<title>Add Book</title>
+</head>
+<body>
+	<div>
+		<table>
+			<tr>
+				<td><a href="/list_books">List Books</a></td>
+				<td><a href="/list_authors">List Authors</a></td>
+				<td><a href="/add_book">Add Book</a></td>
+				<td><a href="/add_author">Add Author</a></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div>
+		<h1>New Book</h1>
+		<form action="/save_book" method="post">
+			<table>
+				<tr>
+					<td>Book Name:</td>
+					<td><input type="text" name="book_name"></input></td>
+				</tr>
+				<tr>
+					<td>ISBN:</td>
+					<td><input type="text" name="ISBN"></input></td>
+				</tr>
+				<tr>
+					<td>Publish Year:</td>
+					<td><input type="text" name="publish_year"></input></td>
+				</tr>
+				<tr>
+					<td>Publisher:</td>
+					<td><input type="text" name="publisher"></input></td>
+				</tr>
+				<tr>
+					<td>Status:</td>
+					<td><input type="text" name="status"></input></td>
+				</tr>
+
+				<tr>
+					<td><button type="submit">Save</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
