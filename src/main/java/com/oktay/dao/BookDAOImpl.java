@@ -29,6 +29,14 @@ public class BookDAOImpl implements BookDAO{
 		
 	}
 
+	@Override
+	public void deleteBook(Integer bookId) {
+		Book book = (Book) sessionFactory.getCurrentSession().load(Book.class, bookId);
+		if (null != book) {
+			this.sessionFactory.getCurrentSession().delete(book);
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<Book> getAllBooks() {
 		Criteria cr = sessionFactory.getCurrentSession().createCriteria(Book.class);

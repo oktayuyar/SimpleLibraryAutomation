@@ -12,5 +12,7 @@ public interface BookDAO {
 	
 	public void addBook(Book book);
 
+	public void deleteBook(Integer bookId);
+
 	public List<Book> getAllBooks();
 }

@@ -11,6 +11,8 @@ import com.oktay.models.Author;
 public interface AuthorService {
 	
 	public void addAuthor(Author author);
+	
+	public void deleteAuthor(Integer authorId);
 
 	public List<Author> getAllAuthors();
 }

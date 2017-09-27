@@ -54,6 +54,7 @@
 										<th>Author Name</th>
 										<th>Author Surname</th>
 										<th>Book Name</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -62,6 +63,9 @@
 										<td th:text="${author?.name}"></td>
 										<td th:text="${author?.surname}"></td>
 										<td th:text="${author?.book.book_name}"></td>
+										<td><a th:href="@{/delete_author/?id={id}(id=${author.id})}"
+											class="btn btn-danger">Delete</a></td>
+
 									</tr>
 								</tbody>
 							</table>

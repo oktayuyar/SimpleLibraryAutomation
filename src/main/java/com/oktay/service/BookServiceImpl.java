@@ -25,6 +25,12 @@ public class BookServiceImpl implements BookService{
 		bookDao.addBook(book);
 		
 	}
+	
+	@Override
+	public void deleteBook(Integer bookId) {
+		bookDao.deleteBook(bookId);
+		
+	}
 
 	@Override
 	public List<Book> getAllBooks() {

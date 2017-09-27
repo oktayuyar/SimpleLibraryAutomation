@@ -25,10 +25,17 @@ public class AuthorServiceImpl implements AuthorService{
 		authorDAO.addAuthor(author);
 		
 	}
+	
+	@Override
+	public void deleteAuthor(Integer authorId) {
+		authorDAO.deleteAuthor(authorId);
+		
+	}
 
 	@Override
 	public List<Author> getAllAuthors() {
 		return authorDAO.getAllAuthors();
 	}
+
 
 }

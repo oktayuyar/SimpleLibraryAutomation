@@ -3,6 +3,8 @@ package com.oktay.controllers;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -55,4 +57,10 @@ public class AuthorController {
 		return new ModelAndView("redirect:/list_authors");
 	}
 	
+	@RequestMapping(value = "/delete_author", method = RequestMethod.GET)
+	public ModelAndView deleteAuthor(HttpServletRequest request) {
+		int authorId = Integer.parseInt(request.getParameter("id"));
+		authorService.deleteAuthor(authorId);
+		return new ModelAndView("redirect:/list_authors");
+	}
 }
