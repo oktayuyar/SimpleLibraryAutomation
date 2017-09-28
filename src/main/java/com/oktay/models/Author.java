@@ -3,7 +3,6 @@ package com.oktay.models;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,8 +15,10 @@ import com.oktay.models.Book;
  *
  */
 @Entity
-public class Author{
-	
+public class Author implements java.io.Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 	@TableGenerator(name = "ATH_GEN", allocationSize = 1)
 	@Id
 	@GeneratedValue(generator = "ATH_GEN")

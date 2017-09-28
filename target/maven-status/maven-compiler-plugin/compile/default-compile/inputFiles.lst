@@ -5,9 +5,11 @@
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/dao/BookDAO.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/service/AuthorServiceImpl.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/models/Author.java
+/home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/controllers/AuthorRestController.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/dao/BookDAOImpl.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/dao/AuthorDAO.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/controllers/BookController.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/models/Book.java
+/home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/controllers/BookRestController.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/service/BookServiceImpl.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/SimpleLibraryAutomationApplication.java

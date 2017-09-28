@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.oktay.models.Author;
-import com.oktay.models.Book;
 import com.oktay.service.AuthorService;
-import com.oktay.service.BookService;
 
 /**
  * @author oktay
@@ -24,11 +24,11 @@ import com.oktay.service.BookService;
 @Controller
 public class AuthorController {
 	
-	@Autowired
-	private AuthorService authorService;
+	public static final Logger logger = LoggerFactory.getLogger(AuthorController.class);
 	
 	@Autowired
-	private BookService bookService;
+	private AuthorService authorService;
+
 	
 	@RequestMapping(value="/list_authors" , method = RequestMethod.GET)
 	public ModelAndView ListAuthors(ModelAndView model) throws IOException {
@@ -41,11 +41,8 @@ public class AuthorController {
 	
 	@RequestMapping(value = "/add_author", method = RequestMethod.GET)
 	public ModelAndView newAuthor(ModelAndView model) {
-		
 		Author author = new Author();
-		List<Book> listBooks = bookService.getAllBooks();
 		model.addObject("author", author);
-		model.addObject("listBooks", listBooks);
 		model.setViewName("addAuthor");
 		
 		return model;
@@ -53,8 +50,18 @@ public class AuthorController {
 	
 	@RequestMapping(value = "/save_author", method = RequestMethod.POST)
 	public ModelAndView saveAuthor(@ModelAttribute Author author) {
-		authorService.addAuthor(author);
+			authorService.addAuthor(author);
 		return new ModelAndView("redirect:/list_authors");
+	}
+	
+	@RequestMapping(value = "/edit_author", method = RequestMethod.GET)
+	public ModelAndView updateAuthor(HttpServletRequest request) {
+		int authorId = Integer.parseInt(request.getParameter("id"));
+		Author author=authorService.getAuthor(authorId);
+		ModelAndView model = new ModelAndView("addAuthor");
+		model.addObject("author",author);
+		
+		return model;
 	}
 	
 	@RequestMapping(value = "/delete_author", method = RequestMethod.GET)

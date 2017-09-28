@@ -2,8 +2,6 @@ package com.oktay.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +21,21 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public void addBook(Book book) {
 		bookDao.addBook(book);
-		
+	}
+
+	@Override
+	public Book getBook(Integer bookId) {
+		return bookDao.getBook(bookId);
+	}
+	
+	@Override
+	public Book updateBook(Book book) {
+		return bookDao.updateBook(book);
 	}
 	
 	@Override
 	public void deleteBook(Integer bookId) {
 		bookDao.deleteBook(bookId);
-		
 	}
 
 	@Override

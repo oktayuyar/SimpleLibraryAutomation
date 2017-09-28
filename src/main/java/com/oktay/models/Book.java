@@ -18,8 +18,10 @@ import com.oktay.models.Author;
  *
  */
 @Entity
-public class Book {
-	
+public class Book implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@TableGenerator(name = "BOOK_GEN", allocationSize = 1)
 	@Id
 	@GeneratedValue(generator = "BOOK_GEN")
@@ -31,7 +33,7 @@ public class Book {
 	private String publisher;
 	private Boolean status;
 	
-	@OneToMany(mappedBy="book" ,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="book" ,cascade=CascadeType.ALL , fetch = FetchType.LAZY)
 	private Collection<Author>  authors =new ArrayList<Author>();
 
 	public int getId() {

@@ -30,6 +30,8 @@
 					<li class="active"></li>
 					<li><a href="/list_books">List Books</a></li>
 					<li><a href="/list_authors">List Authors</a></li>
+					<li><a href="/rest/list_books">Rest Api List Books</a></li>
+					<li><a href="/rest/list_authors">Rest Api List Authors</a></li>
 					<li><a href="/add_book">Add Book</a></li>
 					<li><a href="/add_author">Add Author</a></li>
 				</ul>
@@ -38,29 +40,29 @@
 	</nav>
 
 	<div align="center">
-		<h1>New Book</h1>
-		<form action="/save_book" method="post">
+		<h1>New/Edit Book</h1>
+		<form action="#" th:action="@{/save_book}" th:object="${book}" method="post">
 			<table>
+				 <input type="hidden" th:field="*{id}"/>
 				<tr>
 					<td>Book Name:</td>
-					<td><input type="text" class="form-control" name="book_name"></input></td>
+					<td><input type="text" class="form-control" th:field="*{book_name}"></input></td>
 				</tr>
 				<tr>
 					<td>ISBN:</td>
-					<td><input type="text" class="form-control" name="ISBN"></input></td>
+					<td><input type="text" class="form-control" th:field="*{ISBN}"></input></td>
 				</tr>
 				<tr>
 					<td>Publish Year:</td>
-					<td><input type="text" class="form-control"
-						name="publish_year"></input></td>
+					<td><input type="text" class="form-control" th:field="*{publish_year}"></input></td>
 				</tr>
 				<tr>
 					<td>Publisher:</td>
-					<td><input type="text" class="form-control" name="publisher"></input></td>
+					<td><input type="text" class="form-control" th:field="*{publisher}"></input></td>
 				</tr>
 				<tr>
 					<td>Status:</td>
-					<td><input type="text" class="form-control" name="status"></input></td>
+					<td><input type="text" class="form-control" th:field="*{status}"></input></td>
 				</tr>
 
 				<tr>

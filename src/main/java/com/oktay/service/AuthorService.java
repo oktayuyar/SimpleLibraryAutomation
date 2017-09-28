@@ -10,9 +10,13 @@ import com.oktay.models.Author;
  */
 public interface AuthorService {
 	
-	public void addAuthor(Author author);
+	public void addAuthor(Author author);	
+	
+	public Author getAuthor(Integer authorId);
+	
+	public Author updateAuthor(Author author);
 	
 	public void deleteAuthor(Integer authorId);
-
+			
 	public List<Author> getAllAuthors();
 }

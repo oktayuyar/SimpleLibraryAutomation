@@ -30,6 +30,8 @@
 					<li class="active"></li>
 					<li><a href="/list_books">List Books</a></li>
 					<li><a href="/list_authors">List Authors</a></li>
+					<li><a href="/rest/list_books">Rest Api List Books</a></li>
+					<li><a href="/rest/list_authors">Rest Api List Authors</a></li>
 					<li><a href="/add_book">Add Book</a></li>
 					<li><a href="/add_author">Add Author</a></li>
 				</ul>
@@ -63,9 +65,12 @@
 										<td th:text="${author?.name}"></td>
 										<td th:text="${author?.surname}"></td>
 										<td th:text="${author?.book.book_name}"></td>
-										<td><a th:href="@{/delete_author/?id={id}(id=${author.id})}"
-											class="btn btn-danger">Delete</a></td>
-
+										<td>
+											<a th:href="@{/edit_author/?id={id}(id=${author.id})}"
+												class="btn btn-info">Edit</a> 
+											<a th:href="@{/delete_author/?id={id}(id=${author.id})}"
+												class="btn btn-danger">Delete</a> 
+										</td>
 									</tr>
 								</tbody>
 							</table>

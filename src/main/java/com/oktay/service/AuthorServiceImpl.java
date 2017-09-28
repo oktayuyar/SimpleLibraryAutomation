@@ -2,8 +2,6 @@ package com.oktay.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,19 +21,26 @@ public class AuthorServiceImpl implements AuthorService{
 	@Override
 	public void addAuthor(Author author) {
 		authorDAO.addAuthor(author);
-		
+	}
+
+	@Override
+	public Author getAuthor(Integer authorId) {
+		return authorDAO.getAuthor(authorId);
+	}
+
+	@Override
+	public Author updateAuthor(Author author) {
+		return authorDAO.updateAuthor(author);
 	}
 	
 	@Override
 	public void deleteAuthor(Integer authorId) {
 		authorDAO.deleteAuthor(authorId);
-		
 	}
 
 	@Override
 	public List<Author> getAllAuthors() {
 		return authorDAO.getAllAuthors();
 	}
-
 
 }

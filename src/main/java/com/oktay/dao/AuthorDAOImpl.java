@@ -24,8 +24,18 @@ public class AuthorDAOImpl implements AuthorDAO{
 
 	@Override
 	public void addAuthor(Author author) {
-		sessionFactory.getCurrentSession().save(author);
-		
+		sessionFactory.getCurrentSession().saveOrUpdate(author);
+	}
+
+	@Override
+	public Author getAuthor(Integer authorId) {
+		return (Author) sessionFactory.getCurrentSession().get(Author.class, authorId);
+	}
+	
+	@Override
+	public Author updateAuthor(Author author) {
+		sessionFactory.getCurrentSession().update(author);
+		return author;
 	}
 
 	@Override
