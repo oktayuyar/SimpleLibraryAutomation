@@ -50,7 +50,11 @@ public class AuthorController {
 	
 	@RequestMapping(value = "/save_author", method = RequestMethod.POST)
 	public ModelAndView saveAuthor(@ModelAttribute Author author) {
+		if (author.getId() == 0) { 
 			authorService.addAuthor(author);
+		} else {
+			authorService.updateAuthor(author.getId() , author);
+		}
 		return new ModelAndView("redirect:/list_authors");
 	}
 	

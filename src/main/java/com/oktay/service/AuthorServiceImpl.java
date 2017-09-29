@@ -1,12 +1,13 @@
 package com.oktay.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oktay.dao.AuthorDAO;
 import com.oktay.models.Author;
+import com.oktay.repository.AuthorRepository;
 
 /**
  * @author oktay
@@ -16,31 +17,33 @@ import com.oktay.models.Author;
 public class AuthorServiceImpl implements AuthorService{
 
 	@Autowired
-	private AuthorDAO authorDAO;
+	private AuthorRepository authorRepository;
 	
 	@Override
 	public void addAuthor(Author author) {
-		authorDAO.addAuthor(author);
+		authorRepository.save(author);
 	}
 
 	@Override
 	public Author getAuthor(Integer authorId) {
-		return authorDAO.getAuthor(authorId);
+		return authorRepository.findOne(authorId);
 	}
 
 	@Override
-	public Author updateAuthor(Author author) {
-		return authorDAO.updateAuthor(author);
+	public Author updateAuthor(Integer authorId,Author author) {
+		return authorRepository.save(author);
 	}
 	
 	@Override
 	public void deleteAuthor(Integer authorId) {
-		authorDAO.deleteAuthor(authorId);
+		authorRepository.delete(authorId);
 	}
 
 	@Override
 	public List<Author> getAllAuthors() {
-		return authorDAO.getAllAuthors();
+		List<Author> authors=new ArrayList<>();
+		authorRepository.findAll().forEach(authors::add);
+		return authors;
 	}
 
 }

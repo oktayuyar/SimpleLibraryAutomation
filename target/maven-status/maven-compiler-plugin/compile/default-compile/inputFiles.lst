@@ -1,13 +1,11 @@
-/home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/dao/AuthorDAOImpl.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/controllers/AuthorController.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/service/AuthorService.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/service/BookService.java
-/home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/dao/BookDAO.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/service/AuthorServiceImpl.java
+/home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/repository/AuthorRepository.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/models/Author.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/controllers/AuthorRestController.java
-/home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/dao/BookDAOImpl.java
-/home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/dao/AuthorDAO.java
+/home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/repository/BookRepository.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/controllers/BookController.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/models/Book.java
 /home/oktay/EclipseProjects/SimpleLibraryAutomation/src/main/java/com/oktay/controllers/BookRestController.java

@@ -14,7 +14,7 @@ public interface AuthorService {
 	
 	public Author getAuthor(Integer authorId);
 	
-	public Author updateAuthor(Author author);
+	public Author updateAuthor(Integer authorId, Author author);
 	
 	public void deleteAuthor(Integer authorId);
 			

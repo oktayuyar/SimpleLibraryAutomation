@@ -1,12 +1,13 @@
 package com.oktay.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oktay.dao.BookDAO;
 import com.oktay.models.Book;
+import com.oktay.repository.BookRepository;
 
 /**
  * @author oktay
@@ -16,32 +17,33 @@ import com.oktay.models.Book;
 public class BookServiceImpl implements BookService{
 	
 	@Autowired
-	private BookDAO bookDao;
+	private BookRepository bookRepository;
 
 	@Override
 	public void addBook(Book book) {
-		bookDao.addBook(book);
+		bookRepository.save(book);
 	}
 
 	@Override
 	public Book getBook(Integer bookId) {
-		return bookDao.getBook(bookId);
+		 return bookRepository.findOne(bookId);
 	}
 	
 	@Override
-	public Book updateBook(Book book) {
-		return bookDao.updateBook(book);
+	public Book updateBook(Integer BookId,Book book) {
+		return bookRepository.save(book);
 	}
 	
 	@Override
 	public void deleteBook(Integer bookId) {
-		bookDao.deleteBook(bookId);
+		bookRepository.delete(bookId);
 	}
 
 	@Override
 	public List<Book> getAllBooks() {
-		return bookDao.getAllBooks();
-		
+		List<Book> books=new ArrayList<>();
+		bookRepository.findAll().forEach(books::add);
+		return books;
 	}
 
 }

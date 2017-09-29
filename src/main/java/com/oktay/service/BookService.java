@@ -14,7 +14,7 @@ public interface BookService {
 	
 	public Book getBook(Integer bookId);
 	
-	public Book updateBook(Book book);
+	public Book updateBook(Integer BookId,Book book);
 
 	public void deleteBook(Integer bookId);
 
