@@ -1,7 +1,9 @@
 package com.oktay.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.oktay.models.Book;
@@ -29,14 +32,27 @@ public class BookRestController {
 	@Autowired
 	private BookService bookService;
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/list_books" , method = RequestMethod.GET, headers="Accept= application/json")
-	public ResponseEntity<List<Book>> getListBooks(){
+	public@ResponseBody ResponseEntity<Object> getListBooks() {
 		
 		List<Book> listBooks=bookService.getAllBooks();
-		if(listBooks==null){
-			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);
-		}
-		return new ResponseEntity<List<Book>>(listBooks,HttpStatus.OK);
+		
+		List<JSONObject> books = new ArrayList<JSONObject>();
+		
+	    for (Book b: listBooks) {
+	        JSONObject book = new JSONObject();
+	        book.put("id", b.getId());
+	        book.put("book_name", b.getBook_name());
+	        book.put("isbn", b.getISBN());
+	        book.put("publish_year", b.getPublish_year());
+	        book.put("publisher", b.getPublisher());
+	        book.put("status", b.getStatus());
+	        
+	        books.add(book);
+	    }
+		return new ResponseEntity<Object>(books,HttpStatus.OK);
+		
 
 	}
 	

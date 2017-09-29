@@ -1,13 +1,17 @@
 package com.oktay.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,10 +34,24 @@ public class AuthorRestController {
 	@Autowired
 	private AuthorService authorService;
 
-	@RequestMapping(value="/list_authors" , method = RequestMethod.GET , headers="Accept= application/json")
-	public @ResponseBody List<Author> getListAuthors() {
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="/list_authors" , method = RequestMethod.GET ,headers="Accept= application/json")
+	public@ResponseBody ResponseEntity<Object> getListAuthors() {
+		
 		List<Author> listAuthors=authorService.getAllAuthors();
-		return listAuthors;
+		
+		List<JSONObject> authors = new ArrayList<JSONObject>();
+		
+	    for (Author a : listAuthors) {
+	        JSONObject author = new JSONObject();
+	        author.put("id", a.getId());
+	        author.put("name", a.getName());
+	        author.put("surname", a.getSurname());
+	        author.put("book_name", a.getBook().getBook_name());
+	        
+	        authors.add(author);
+	    }
+		return new ResponseEntity<Object>(authors,HttpStatus.OK);
 		
 	}
 	

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.oktay.repository;
 
 import org.springframework.data.repository.CrudRepository;
